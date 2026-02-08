@@ -1,0 +1,192 @@
+# ================================================================
+# Python .gitignore for NVIDIA Stock Analysis Project
+# ================================================================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+cover/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# poetry
+poetry.lock
+
+# pdm
+.pdm.toml
+
+# PEP 582
+__pypackages__/
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# ================================================================
+# Project Specific
+# ================================================================
+
+# Data files (don't commit large datasets)
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.parquet
+data/processed/*.csv
+data/processed/*.parquet
+data/external/
+
+# Keep directory structure
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/external/.gitkeep
+
+# Models (too large for git)
+models/*.pkl
+models/*.h5
+models/*.pt
+models/*.joblib
+!models/.gitkeep
+
+# Experiment tracking
+experiments/mlruns/
+wandb/
+mlruns/
+
+# Reports and outputs
+reports/figures/*.png
+reports/figures/*.pdf
+reports/metrics/*.json
+!reports/figures/.gitkeep
+!reports/metrics/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Config files with secrets
+config/secrets.yaml
+.env.local
+.env.production
+
+# DVC
+.dvc/tmp
+.dvc/cache
+
+# ================================================================
+# Keep these files
+# ================================================================
+!.gitkeep
+!README.md
+!requirements.txt
+!setup.py
