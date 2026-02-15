@@ -167,10 +167,10 @@ python scripts/detect_leakage.py --data data/raw/NVDA_yfinance_clean.csv
 **Goal**: Understand the data inside and out.
 
 **Tasks**:
-1. ✅ Read `README.md` completely
-2. ✅ Open `notebooks/01_eda.ipynb`
-3. ✅ Run each cell and understand what it does
-4. ✅ Modify code to answer your own questions
+1. [x] Read `README.md` completely
+2. [x] Open `notebooks/01_eda.ipynb`
+3. [x] Run each cell and understand what it does
+4. [x] Modify code to answer your own questions
 
 **Key Questions to Answer**:
 - What is OHLCV data?
@@ -189,10 +189,10 @@ python scripts/detect_leakage.py --data data/raw/NVDA_yfinance_clean.csv
 **Goal**: Learn to create features WITHOUT leakage.
 
 **Tasks**:
-1. ✅ Study `notebooks/02_feature_engineering.ipynb`
-2. ✅ Read `src/features/` module code
-3. ✅ Create your own technical indicators
-4. ✅ **CRITICAL**: Validate features don't leak
+1. [x] Study `notebooks/02_feature_engineering.ipynb`
+2. [x] Read `src/features/` module code
+3. [x] Create your own technical indicators
+4. [x] **CRITICAL**: Validate features don't leak
 
 **Key Concepts**:
 - What is a lag feature?

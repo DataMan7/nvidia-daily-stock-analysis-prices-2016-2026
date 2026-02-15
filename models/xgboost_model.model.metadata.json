@@ -1,0 +1,35 @@
+{
+  "params": {
+    "objective": "reg:squarederror",
+    "eval_metric": "mae",
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "n_estimators": 100,
+    "subsample": 0.8,
+    "colsample_bytree": 0.8,
+    "random_state": 42
+  },
+  "feature_names": [
+    "Daily_Return",
+    "Prev_Day_Return",
+    "MA_7",
+    "MA_50",
+    "MA_200",
+    "RSI",
+    "BB_Middle",
+    "BB_Upper",
+    "BB_Lower",
+    "BB_Width",
+    "Close_Lag_1",
+    "Volume_Lag_1",
+    "Close_Lag_2",
+    "Volume_Lag_2",
+    "Close_Lag_3",
+    "Volume_Lag_3",
+    "Close_Lag_5",
+    "Volume_Lag_5",
+    "Close_Lag_7",
+    "Volume_Lag_7"
+  ],
+  "is_fitted": true
+}

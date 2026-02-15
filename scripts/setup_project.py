@@ -72,6 +72,12 @@ def main():
     # Step 2: Create virtual environment
     venv_path = project_root / "venv"
     
+    # Define venv python path explicitly
+    if sys.platform == "win32":
+        venv_python = venv_path / "Scripts" / "python.exe"
+    else:
+        venv_python = venv_path / "bin" / "python"
+    
     if not venv_path.exists():
         response = input("\n💡 Create virtual environment? (y/n): ")
         if response.lower() == 'y':
@@ -94,25 +100,21 @@ def main():
     # Step 3: Install dependencies
     response = input("\n💡 Install Python dependencies? (y/n): ")
     if response.lower() == 'y':
-        # Check if we're in a virtual environment
-        in_venv = hasattr(sys, 'real_prefix') or (
-            hasattr(sys, 'base_prefix') and sys.base_prefix != sys.prefix
-        )
-        
-        if not in_venv:
-            print("\n⚠️  WARNING: You're not in a virtual environment!")
-            response = input("Continue anyway? (y/n): ")
-            if response.lower() != 'y':
-                print("Skipping dependency installation.")
-            else:
-                run_command(
-                    f"pip install -r {project_root}/requirements.txt",
-                    "Installing dependencies"
-                )
-        else:
+        # Prioritize installing into the venv we just checked/created
+        if venv_python.exists():
+            print(f"📦 Installing dependencies into virtual environment: {venv_python}")
             run_command(
-                f"pip install -r {project_root}/requirements.txt",
+                f"\"{venv_python}\" -m pip install -r {project_root}/requirements.txt",
                 "Installing dependencies"
+            )
+            
+            # Step 3.5: Register Jupyter Kernel (Fixes VS Code discovery issues)
+            print("\n" + "="*80)
+            print("⚙️  Registering Jupyter Kernel")
+            print("="*80)
+            run_command(
+                f"\"{venv_python}\" -m ipykernel install --user --name=nvidia_stock_project --display-name \"Python (NVIDIA Stock Project)\"",
+                "Registering kernel with Jupyter"
             )
     
     # Step 4: Initialize Git (if not already initialized)
@@ -153,7 +155,7 @@ def main():
     response = input("\n💡 Run initial tests? (y/n): ")
     if response.lower() == 'y':
         run_command(
-            f"cd {project_root} && python -m pytest tests/ -v",
+            f"cd {project_root} && \"{sys.executable}\" -m pytest tests/ -v",
             "Running tests"
         )
     
