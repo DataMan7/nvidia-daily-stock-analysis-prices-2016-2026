@@ -27,6 +27,13 @@ from .hyperparameter_tuning import (
     optimize_model_hyperparameters
 )
 
+from .mlflow_utils import (
+    MLflowTracker,
+    MLflowRun,
+    setup_mlflow_tracking,
+    log_model_comparison
+)
+
 __all__ = [
     # Model utilities
     'ModelRegistry',
@@ -39,7 +46,13 @@ __all__ = [
     'HyperparameterTuner',
     'create_param_space_for_xgboost',
     'create_param_space_for_random_forest',
-    'optimize_model_hyperparameters'
+    'optimize_model_hyperparameters',
+
+    # MLflow tracking
+    'MLflowTracker',
+    'MLflowRun',
+    'setup_mlflow_tracking',
+    'log_model_comparison'
 ]
 
 __version__ = "1.0.0"
